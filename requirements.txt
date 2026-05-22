@@ -1,9 +1,7 @@
-fastapi
-
-uvicorn
-
-pydantic
-
+--index-url https://download.pytorch.org/whl/cpu
+torch==2.2.2
 transformers
-
-torch --index-url https://download.pytorch.org/whl/cpu
+accelerate
+fastapi
+uvicorn
+pydantic
