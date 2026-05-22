@@ -14,10 +14,8 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # 5. Копируем сам серверный код
-COPY app.py .
+# 5. Копируем сам серверный код
+COPY main.py .
 
-# Строку EXPOSE можно убрать, так как Render сам управляет портами изнутри
-
-# 6. Запуск: используем bash-оболочку, чтобы uvicorn прочитал переменную $PORT, 
-# а если её нет (например, локально), то включится порт 8000 по умолчанию
-CMD ["sh", "-c", "uvicorn app:app --host 0.0.0.0 --port ${PORT:-8000}"]
+# 6. Запуск сервера Nova
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "10000"]
